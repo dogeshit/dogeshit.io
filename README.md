@@ -40,7 +40,7 @@
 
 ## 开源 GitHub 社区
 
-https://github.com/dogeshit
+[https://github.com/dogeshit](https://github.com/dogeshit)
 
 标准 ERC20 合约，诞生及发展历程，官网，论坛，贡献榜等等，所有数据，100% 全部开源…
 
