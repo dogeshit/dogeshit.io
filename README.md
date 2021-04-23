@@ -46,6 +46,10 @@
 
 标准 ERC20 合约，诞生及发展历程，官网，论坛，贡献榜等等，所有数据，100% 全部开源…
 
+### GitHub 提供了论坛功能
+
+附链接 [https://github.com/dogeshit/talk-here/discussions](https://github.com/dogeshit/talk-here/discussions)
+
 
 
 ## 英雄帖
