@@ -57,6 +57,29 @@ https://github.com/dogeshit
 
 ---------
 
+
+## 以太坊合约
+
+`0x6Ed225EFbD0A387fFC7d31F9577c5c8b8B74C981`
+
+已开源验证
+
+
+### DogeShit.sol:
+
+`dweb:/ipfs/QmZFXcp6jp6qZeF6fwRdxwSaWVnWuuW3SxMY8d2u5SCFLf`
+
+### metadata.json:
+
+`dweb:/ipfs/QmT7EznkoSAnxrXpDXcnPKcZShGdZeVzrTSHBfCJHQovcP`
+
+
+## UniSwap 的 LP 已 100% 销毁
+
+[https://etherscan.io/tx/0xfada9cfe8b193f8f892be92f8d23cde27908d0058b52b37164dfa496014163d0](https://etherscan.io/tx/0xfada9cfe8b193f8f892be92f8d23cde27908d0058b52b37164dfa496014163d0)
+
+---------
+
 ## 待续
 
 TO BE CONTINUED...
