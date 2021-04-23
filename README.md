@@ -62,21 +62,36 @@
 
 `0x6Ed225EFbD0A387fFC7d31F9577c5c8b8B74C981`
 
-已开源验证
+已在 etherscan.io 开源验证
+
+对应的部署 tx hash 是
+[0xa615de55c899c817f57d99e9765fa3b8f51e96f77a011861e74b33819dfac389](https://etherscan.io/tx/0xa615de55c899c817f57d99e9765fa3b8f51e96f77a011861e74b33819dfac389)
 
 
-### DogeShit.sol:
+### DogeShit.sol
 
 `dweb:/ipfs/QmZFXcp6jp6qZeF6fwRdxwSaWVnWuuW3SxMY8d2u5SCFLf`
 
-### metadata.json:
+### metadata.json
 
 `dweb:/ipfs/QmT7EznkoSAnxrXpDXcnPKcZShGdZeVzrTSHBfCJHQovcP`
 
 
-## UniSwap 的 LP 已 100% 销毁
+## UniSwap
 
-[https://etherscan.io/tx/0xfada9cfe8b193f8f892be92f8d23cde27908d0058b52b37164dfa496014163d0](https://etherscan.io/tx/0xfada9cfe8b193f8f892be92f8d23cde27908d0058b52b37164dfa496014163d0)
+### 总量 100% 一次性打入 UniSwap 交易池
+
+建池 tx hash 是
+[0x4062b458ad9c69d48ef8a149fa9b2e21fd21bca5cddba375ec6fb7a9f3133636](https://etherscan.io/tx/0x4062b458ad9c69d48ef8a149fa9b2e21fd21bca5cddba375ec6fb7a9f3133636)
+
+### UniSwap 的 LP 已 100% 销毁
+
+从这里可以看到 UniSwap 的 LP 持仓已完全属于 0x0000000000000000000000000000000000000000 黑洞地址
+[https://etherscan.io/token/0xbab36e9845ad95cf5b6c9448d429c443571a354e#balances](https://etherscan.io/token/0xbab36e9845ad95cf5b6c9448d429c443571a354e#balances)
+
+对应的销毁转账的 tx hash 是
+[0xfada9cfe8b193f8f892be92f8d23cde27908d0058b52b37164dfa496014163d0](https://etherscan.io/tx/0xfada9cfe8b193f8f892be92f8d23cde27908d0058b52b37164dfa496014163d0)
+
 
 ---------
 
