@@ -1,5 +1,6 @@
 # 狗屎币 DogeShit
 
+币安链 BRC20 合约地址 `0x55e1fAE89d860a0723062f43a14E5b3C9432f053`
 以太坊 ERC20 合约地址 `0x6Ed225EFbD0A387fFC7d31F9577c5c8b8B74C981`
 
 **狗屎币源于一个突发奇想，娱乐作品，非盈利，社区驱动，甚至没有明确的定义。起源于一个听起来很奇怪但很常见的词叫“狗屎运”。在中国，“狗屎运”是指“突如其来的，莫名其妙的，不期而遇的，甚至是荒诞离奇的 —— 好·运·气”，“走狗屎运”也被用来形容一个人好运当头、被幸运之神眷顾。使用微信内置的翻译功能，翻译 LuckyDogeShit 得到的结果是 —— 幸运之神。**
@@ -81,6 +82,17 @@
 ### metadata.json
 
 `dweb:/ipfs/QmT7EznkoSAnxrXpDXcnPKcZShGdZeVzrTSHBfCJHQovcP`
+
+
+## PancakeSwap
+
+### 总量 100% 一次性打入 PancakeSwap 交易池
+
+建池 tx hash 是
+[0x270f95ffe7bd6cfe9e8d5f293b3552293cda1ef8a7fc5d8869a299cba41d8397](https://bscscan.com/tx/0x270f95ffe7bd6cfe9e8d5f293b3552293cda1ef8a7fc5d8869a299cba41d8397)
+
+### PancakeSwap 的 LP 已 100% 计划 100% 销毁
+
 
 
 ## UniSwap
