@@ -3,7 +3,7 @@ name: Deploy, copy to LuckyDogeShit.com
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   auto-deploy:
     runs-on: ${{ matrix.os }}
@@ -16,5 +16,5 @@ jobs:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - rm CNAME
-      - rm ./.github -rf
+      - run: rm CNAME
+      - run: rm ./.github -rf
