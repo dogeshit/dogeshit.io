@@ -18,3 +18,6 @@ jobs:
           persist-credentials: false
       - run: rm CNAME
       - run: rm ./.github -rf
+      - run: git remote raname origin drop
+      - run: git remote add origin https://github.com/dogeshit/luckydogeshit.com.git
+      - run: git push -u origin
