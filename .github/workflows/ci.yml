@@ -1,0 +1,30 @@
+name: Deploy, copy to LuckyDogeShit.com
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  to-lockydogeshit.com:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - run: rm ./.github -rf
+      - run: echo luckydogeshit.com > CNAME
+      - run: git config --local user.name "${{ secrets.GIT_ACTION_NAME }}"
+      - run: git config --local user.email "${{ secrets.GIT_ACTION_EMAIL }}"
+      - run: git commit -m "Copied from dogeshit/dogeshit.io" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          force: true
+          repository: dogeshit/luckydogeshit.io
