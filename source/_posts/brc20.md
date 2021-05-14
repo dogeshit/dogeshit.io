@@ -24,7 +24,7 @@ excerpt: 币安链区块链 BRC20 标准合约与 PanCakeSwap 交易
 
 ## 总量 100% 一次性打入 PanCakeSwap 交易池
 
-a建池于 [0x270f95ffe7bd6cfe9e8d5f293b3552293cda1ef8a7fc5d8869a299cba41d8397](https://bscscan.com/tx/0x270f95ffe7bd6cfe9e8d5f293b3552293cda1ef8a7fc5d8869a299cba41d8397)
+建池于 [0x270f95ffe7bd6cfe9e8d5f293b3552293cda1ef8a7fc5d8869a299cba41d8397](https://bscscan.com/tx/0x270f95ffe7bd6cfe9e8d5f293b3552293cda1ef8a7fc5d8869a299cba41d8397)
 
 得到 UniSwap-LP 共 `816,496.580927725624483137`
 
