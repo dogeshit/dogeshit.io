@@ -1,0 +1,91 @@
+root: /
+
+Home: /
+
+language: en
+
+author: iGuan7u
+description: A beautiful & simple theme.
+
+# AvatorURL
+# it would be shown on sidecar.
+
+avatar:
+
+# Comment
+
+gitalk:
+  enable: true
+  clientID: 29f2bed10cca5e21db58
+  clientSecret: 9040e77487286bc5f3376b0733036727ed90eda5
+  repo: talk-here
+  owner: dogeshit
+  admin: hineosmith
+
+disqus:
+  enable: false
+  shortname: your_disqus_short_name
+
+# Contact_Info
+# Contact info will be shown on the side bar.
+
+contact:
+  enable: true
+  description: '欢迎来点亮 GitHub 小星星'
+
+  twitter:
+    enable: false
+    username: twitter_username
+
+  github:
+    enable: true
+    username: dogeshit
+
+  weibo:
+    enable: false
+    username: weibo_username
+
+  facebook:
+    enable: false
+    username: facebook_username
+
+  instagram:
+    enable: false
+    username: instagram_username
+
+
+# Analytice
+
+mta_analytics:
+  enable: false
+  name: mta_analytics_name
+  sid: mta_analytics_sid
+
+baidu_analytics:
+  enable: true
+  id: 582eedb88e03346b456d315000357414
+
+google_analytice:
+  enable: true
+  tracking_id: G-QCFG5YFJC3
+
+# Website ICPLicense
+# which is useful in China mainland.
+
+ICPLicense:
+  enable: false
+  content: "Fill IPCLicense"
+
+# EtraPlugin
+
+extra_plugin:
+  enable: false
+  url: extra_plugin_js_url
+
+# Development Setting
+
+node_sass:
+  # outputStyle: nested
+  outputStyle: compressed
+  precision: 5
+  sourceComments: false

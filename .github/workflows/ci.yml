@@ -1,30 +1,44 @@
-name: Deploy, copy to LuckyDogeShit.com
+name: Auto Deploy
 
 on:
   push:
     branches:
       - main
+
 jobs:
-  copy:
+  auto-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Set time-zone
+        run: export TZ='Asia/Shanghai'
+
       - name: Checkout
         uses: actions/checkout@v2
-#         with:
-#           persist-credentials: false
-
-      - name: Changes
-        run: |
-          rm ./.github -rf
-          echo luckydogeshit.com > CNAME
-          git config --local user.name "${{ secrets.GIT_ACTION_EMAIL }}"
-          git config --local user.email "${{ secrets.GIT_ACTION_EMAIL }}"
-          git commit -m "Copied from dogeshit.io" -a
-
-      - name: Push
-        uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          force: true
-          repository: dogeshit/luckydogeshit.com
+          persist-credentials: false
+
+      # https://github.com/actions/cache/blob/main/examples.md#node---yarn
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Cache
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Generate
+        run: |
+          sudo npm install -g hexo-cli
+          yarn
+          hexo generate && cp README.md ./dist/
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: gh-pages
+          folder: dist
