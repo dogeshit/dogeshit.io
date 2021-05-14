@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs:
-  to-lockydogeshit.com:
+  copy:
     runs-on: ${{ matrix.os }}
 
     strategy:
