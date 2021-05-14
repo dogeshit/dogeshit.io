@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head>
+        <title>以太坊 ERC20 合约与 UniSwap</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+        
+    
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+    <meta name="generator" content="Hexo 5.3.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">DogeShit</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>DogeShit</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Lucky DogeShit</h4>
+                <img class="al_sidebar_avatar" src="/poo.png">
+                <p>狗屎币源于一个突发奇想，娱乐作品，非盈利，社区驱动，甚至没有明确的定义。起源于一个听起来很奇怪但很常见的词叫“狗屎运”。在中国，“狗屎运”是指“突如其来的，莫名其妙的，不期而遇的，甚至是荒诞离奇的 —— 好·运·气”，“走狗屎运”也被用来形容一个人好运当头、被幸运之神眷顾。使用微信内置的翻译功能，翻译 LuckyDogeShit 得到的结果是 —— 幸运之神。
+
+持有狗屎币，常伴狗屎运…
+</p>
+            </div>
+
+            
+                <div class="al_sidebar_contact_info">
+                    <h4>GET IN TOUCH</h4>
+                    <p>欢迎来点亮 GitHub 小星星</p>
+
+                    <div class="dis_flex al_sidebar_social_widget">
+                        
+                        
+
+                        
+                        
+
+                        
+                        
+
+                        
+                        
+                            <div class="al_social_icon_cnt" data_link="https://www.github.com/dogeshit">
+                                <svg class="al_social_icon" id="github">
+                                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#icon_github"></use>
+                                </svg>
+                            </div>
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        以太坊 ERC20 合约与 UniSwap
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            Fri April 23, 2021 09:38 AM
+                        </div>
+
+                        
+                            <div class="al_page_content_info">
+                                92 words
+                            </div>
+                        
+
+                        
+                            <div class="al_page_content_info">
+                                1 minutes read
+                            </div>
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E7%BA%A6%E5%9C%B0%E5%9D%80"><span class="toc-text">合约地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%81%92%E5%AE%9A%E6%80%BB%E9%87%8F"><span class="toc-text">恒定总量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E9%87%8F-100-%E4%B8%80%E6%AC%A1%E6%80%A7%E6%89%93%E5%85%A5-UniSwap-%E4%BA%A4%E6%98%93%E6%B1%A0"><span class="toc-text">总量 100% 一次性打入 UniSwap 交易池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UniSwap-LP-%E5%B7%B2-100-%E8%BD%AC%E5%85%A5%E9%BB%91%E6%B4%9E%E5%9C%B0%E5%9D%80%E9%94%80%E6%AF%81"><span class="toc-text">UniSwap-LP 已 100% 转入黑洞地址销毁</span></a></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h2 id="合约地址"><a href="#合约地址" class="headerlink" title="合约地址"></a>合约地址</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">0x6Ed225EFbD0A387fFC7d31F9577c5c8b8B74C981<br></code></pre></td></tr></table></figure>
+<ul>
+<li>部署于 <a target="_blank" rel="noopener" href="https://etherscan.io/tx/0xa615de55c899c817f57d99e9765fa3b8f51e96f77a011861e74b33819dfac389">0xa615de55c899c817f57d99e9765fa3b8f51e96f77a011861e74b33819dfac389</a></li>
+<li>已在 <a target="_blank" rel="noopener" href="https://etherscan.io/address/0x6ed225efbd0a387ffc7d31f9577c5c8b8b74c981#code">etherscan.io</a> 开源验证</li>
+</ul>
+<h2 id="恒定总量"><a href="#恒定总量" class="headerlink" title="恒定总量"></a>恒定总量</h2><p><code>666,666,666,666,666</code> DogeShit</p>
+<p>小数点后精度 18 位</p>
+<h2 id="总量-100-一次性打入-UniSwap-交易池"><a href="#总量-100-一次性打入-UniSwap-交易池" class="headerlink" title="总量 100% 一次性打入 UniSwap 交易池"></a>总量 100% 一次性打入 UniSwap 交易池</h2><p>建池于 <a target="_blank" rel="noopener" href="https://etherscan.io/tx/0x481f8182d33e3fbc117f6fc97808b4ddcb429c6151d7325e6411ad8ec43c1397">0x481f8182d33e3fbc117f6fc97808b4ddcb429c6151d7325e6411ad8ec43c1397</a></p>
+<p>得到 UniSwap-LP 共 <code>816,496.580927725624483137</code></p>
+<h2 id="UniSwap-LP-已-100-转入黑洞地址销毁"><a href="#UniSwap-LP-已-100-转入黑洞地址销毁" class="headerlink" title="UniSwap-LP 已 100% 转入黑洞地址销毁"></a>UniSwap-LP 已 100% 转入黑洞地址销毁</h2><p>交易 Hash 为 <a target="_blank" rel="noopener" href="https://etherscan.io/tx/0xfada9cfe8b193f8f892be92f8d23cde27908d0058b52b37164dfa496014163d0">0xfada9cfe8b193f8f892be92f8d23cde27908d0058b52b37164dfa496014163d0</a></p>
+<p>销毁总量就是建池所得的 100% 即 <code>816,496.580927725624483137</code></p>
+
+                </section>
+
+                
+                
+    <div id="al_gitalk_cnt">
+    <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: "29f2bed10cca5e21db58",
+            clientSecret: "9040e77487286bc5f3376b0733036727ed90eda5",
+            repo: "talk-here",
+            owner: "dogeshit",
+            admin: "hineosmith",
+            id: "以太坊 ERC20 合约与 UniSwap",
+        });
+        gitalk.render("al_gitalk_cnt")
+    </script>
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/2021/brc20/">
+                    
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-left"></use>
+                        </svg>
+                        <span class="al_text_ellipsis al_post_nav_desc">币安链 BRC20 合约与 PanCakeSwap</span>
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/">
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Lucky DogeShit
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+    <script src="//hm.baidu.com/hm.js?582eedb88e03346b456d315000357414"></script>
+
+        
+    <script src="//www.googletagmanager.com/gtag/js?id=G-QCFG5YFJC3"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};gtag('js', new Date());gtag('config', '${theme.google_analytice.tracking_id}');</script>
+
+        
+    </body>
+</html>
+        
