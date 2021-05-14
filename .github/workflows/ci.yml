@@ -1,0 +1,20 @@
+name: Deploy, copy to LuckyDogeShit.com
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  auto-deploy:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - rm CNAME
+      - rm ./.github -rf
