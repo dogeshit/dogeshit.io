@@ -18,6 +18,8 @@ jobs:
           persist-credentials: false
       - run: rm CNAME
       - run: rm ./.github -rf
+      - run: git config --local user.name "${{ secrets.GIT_ACTION_NAME }}"
+      - run: git config --local user.email "${{ secrets.GIT_ACTION_EMAIL }}"
       - run: git remote rename origin drop
       - run: git remote add origin https://github.com/dogeshit/luckydogeshit.com.git
       - run: git push -u origin
