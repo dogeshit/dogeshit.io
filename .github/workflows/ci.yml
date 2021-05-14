@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
+      - run: echo "$GITHUB_CONTEXT"
 
       - run: |
           rm ./.github -rf
@@ -21,7 +22,8 @@ jobs:
 
       - uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GIT_TOKEN }}
+#           github_token: ${{ secrets.GIT_TOKEN }}
+          github_token: ${{ github.token }}
           branch: ${{ github.ref }}
           force: true
           repository: dogeshit/luckydogeshit.com
