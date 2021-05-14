@@ -6,23 +6,20 @@ on:
       - main
 jobs:
   copy:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - run: rm ./.github -rf
-      - run: echo luckydogeshit.com > CNAME
-      - run: git config --local user.name "${{ secrets.GIT_ACTION_NAME }}"
-      - run: git config --local user.email "${{ secrets.GIT_ACTION_EMAIL }}"
-      - run: git commit -m "Copied from dogeshit/dogeshit.io" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+
+      - run: |
+          rm ./.github -rf
+          echo luckydogeshit.com > CNAME
+          git config --local user.name "${{ secrets.GIT_ACTION_NAME }}"
+          git config --local user.email "${{ secrets.GIT_ACTION_EMAIL }}"
+          git commit -m "Copied from dogeshit/dogeshit.io" -a
+
+      - uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GIT_TOKEN }}
           branch: ${{ github.ref }}
