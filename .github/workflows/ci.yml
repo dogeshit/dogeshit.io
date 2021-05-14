@@ -11,12 +11,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - run: echo "$GITHUB_CONTEXT"
 
       - run: |
           rm ./.github -rf
           echo luckydogeshit.com > CNAME
-          git config --local user.name "${{ secrets.GIT_ACTION_NAME }}"
+          git config --local user.name "${{ github.actor }}"
           git config --local user.email "${{ secrets.GIT_ACTION_EMAIL }}"
           git commit -m "Copied from dogeshit/dogeshit.io" -a
 
