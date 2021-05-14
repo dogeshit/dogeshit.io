@@ -20,7 +20,7 @@ jobs:
       - run: echo luckydogeshit.com > CNAME
       - run: git config --local user.name "${{ secrets.GIT_ACTION_NAME }}"
       - run: git config --local user.email "${{ secrets.GIT_ACTION_EMAIL }}"
-      - run: git add -m "Copied from dogeshit/dogeshit.io" -a
+      - run: git commit -m "Copied from dogeshit/dogeshit.io" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
